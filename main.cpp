@@ -8,40 +8,41 @@ int main() {
     cin >> size;
 
     Maze maze(size);
-    maze.generate();
+    maze.generation();
+ 
 
     cout << "Generacia labirinta:\n";
-    maze.display();
+    maze.pokaz();
 
-    // Определяем начальную и конечную точки
+ 
     int startX = 0, startY = 1;
     int endX = size - 1, endY = size - 2;
 
-    // Поиск кратчайшего пути
+
     vector<pair<int, int>> path;
-    if (maze.findShortestPathDFS(startX, startY, endX, endY, path)) {
+    if (maze.naxogdeniecrotchaishegoputiDFS(startX, startY, endX, endY, path)) {
         cout << "--Poisk puti metodom dfs--\n";
 //        for (const auto& p : path) {
 //            cout << "(" << p.first << ", " << p.second << ") ";
 //        }
 
-        // Вычисление длины пути
-        int pathLength = maze.calculatePathLength(path);
+    
+        int pathLength = maze.calculatePutiLength(path);
         cout << "Dlina puti: " << pathLength << " shagov." << endl;
     }
     else {
         cout << "Put ne naiden.\n";
     }
     cout << endl;
-    // Поиск кратчайшего пути методом Дейкстры
-    if (maze.findShortestPathDijkstra(startX, startY, endX, endY, path)) {
+
+    if (maze.naxogdeniecrotchaishegoputiDijkstra(startX, startY, endX, endY, path)) {
         cout << "--Poisk puti metodo Djjkstra--\n";
 //      for (const auto& p : path) {
 //             cout << "(" << p.first << ", " << p.second << ") ";
 //        }
 
-        // Вычисление длины пути
-        int pathLength = maze.calculatePathDijkstraLength(path); 
+       
+        int pathLength = maze.calculatePutiDijkstraLength(path); 
         cout << "Dlina puti: " << pathLength << " shagov." << endl;
     }
     else {

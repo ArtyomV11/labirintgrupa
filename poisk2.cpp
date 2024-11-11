@@ -11,7 +11,7 @@ struct Node {
 };
 
 // Функция для поиска кратчайшего пути с использованием алгоритма Дейкстры
-bool Maze::findShortestPathDijkstra(int startX, int startY, int endX, int endY, vector<pair<int, int>>& path) {
+bool Maze::naxogdeniecrotchaishegoputiDijkstra(int startX, int startY, int endX, int endY, vector<pair<int, int>>& path) {
     auto start = std::chrono::high_resolution_clock::now();  // Начало замера времени
 
     // Массив расстояний для всех точек
@@ -57,7 +57,7 @@ bool Maze::findShortestPathDijkstra(int startX, int startY, int endX, int endY, 
             int newX = x + dx[i];
             int newY = y + dy[i];
 
-            if (inBounds(newX, newY) && labyrinth[newX][newY] != Stena) {
+            if (vlabirinte(newX, newY) && labyrinth[newX][newY] != Stena) {
                 int newDist = dist[x][y] + 1; // Расстояние от стартовой точки до соседа
 
                 // Если найден более короткий путь, обновляем расстояние и предка
@@ -77,6 +77,6 @@ bool Maze::findShortestPathDijkstra(int startX, int startY, int endX, int endY, 
     return false; // Если выход не найден
 }
 
-int Maze::calculatePathDijkstraLength(const std::vector<std::pair<int, int>>& path) {
+int Maze::calculatePutiDijkstraLength(const std::vector<std::pair<int, int>>& path) {
     return (path.size() - 1 -1 )/2; // Длина пути (размер пути минус один)
 }

@@ -18,27 +18,26 @@ const char Stena = '#';
 const char Put = ' ';
 
 class Maze {
+
+
 public:
     Maze(int size);
-    void generate();
-    void display() const;
-    void saveToFile(const std::string& filename) const;
-    bool findShortestPathDFS(int startX, int startY, int endX, int endY, std::vector<std::pair<int, int>>& path);
-    int calculatePathLength(const std::vector<std::pair<int, int>>& path);
-    bool findShortestPathDijkstra(int startX, int startY, int endX, int endY, std::vector<std::pair<int, int>>& path);
-    int calculatePathDijkstraLength(const std::vector<std::pair<int, int>>& path);
-
-
-
+    void generation();
+    void pokaz() const;
+    void sochranenievfail(const std::string& filename) const;
+    bool naxogdeniecrotchaishegoputiDFS(int startX, int startY, int endX, int endY, std::vector<std::pair<int, int>>& path);
+    int calculatePutiLength(const std::vector<std::pair<int, int>>& path);
+    bool naxogdeniecrotchaishegoputiDijkstra(int startX, int startY, int endX, int endY, std::vector<std::pair<int, int>>& path);
+    int calculatePutiDijkstraLength(const std::vector<std::pair<int, int>>& path);
 
 private:
     int size;
     std::vector<std::vector<char>> labyrinth;
-    bool inBounds(int x, int y) const;
-    void createPath(int x, int y);
+    bool vlabirinte(int x, int y) const;
+    void sozdanieputi(int x, int y);
     bool dfs(int x, int y, int endX, int endY, std::vector<std::pair<int, int>>& path, std::vector<std::vector<bool>>& visited);
-    
-
 };
 
+
 #endif
+

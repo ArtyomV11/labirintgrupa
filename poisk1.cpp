@@ -4,7 +4,7 @@
 using namespace std;
 
 // Функция для поиска кратчайшего пути с использованием DFS
-bool Maze::findShortestPathDFS(int startX, int startY, int endX, int endY, vector<pair<int, int>>& path) {
+bool Maze::naxogdeniecrotchaishegoputiDFS(int startX, int startY, int endX, int endY, vector<pair<int, int>>& path) {
     auto start = std::chrono::high_resolution_clock::now();  // Начало замера времени
 
     vector<vector<bool>> visited(size, vector<bool>(size, false));
@@ -34,7 +34,7 @@ bool Maze::dfs(int x, int y, int endX, int endY, vector<pair<int, int>>& path, v
     }
 
     // Проверяем границы и проходимость клетки
-    if (!inBounds(x, y) || labyrinth[x][y] == Stena || visited[x][y]) {
+    if (!vlabirinte(x, y) || labyrinth[x][y] == Stena || visited[x][y]) {
         return false;
     }
 
@@ -61,6 +61,6 @@ bool Maze::dfs(int x, int y, int endX, int endY, vector<pair<int, int>>& path, v
 
 
 // Функция для вычисления длины пути
-int Maze::calculatePathLength(const vector<pair<int, int>>& path) {
+int Maze::calculatePutiLength(const vector<pair<int, int>>& path) {
     return path.size() - 1;  // Длина пути в шагах (размер пути минус один)
 }

@@ -129,12 +129,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="Maze1.cpp" />
     <ClCompile Include="poisk1.cpp" />
     <ClCompile Include="poisk2.cpp" />
     <ClCompile Include="verification.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header.h" />
     <ClInclude Include="Maze.h" />
+    <ClInclude Include="Maze1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
