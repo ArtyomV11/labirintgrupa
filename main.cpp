@@ -1,6 +1,4 @@
 #include "Maze.h"
-#include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -22,7 +20,7 @@ int main() {
     // Поиск кратчайшего пути
     vector<pair<int, int>> path;
     if (maze.findShortestPathDFS(startX, startY, endX, endY, path)) {
-        cout << "Put:\n";
+        cout << "--Poisk puti metodom dfs--\n";
 //        for (const auto& p : path) {
 //            cout << "(" << p.first << ", " << p.second << ") ";
 //        }
@@ -37,8 +35,8 @@ int main() {
     cout << endl;
     // Поиск кратчайшего пути методом Дейкстры
     if (maze.findShortestPathDijkstra(startX, startY, endX, endY, path)) {
-        cout << "Put (Dijkstra):\n";
-//       for (const auto& p : path) {
+        cout << "--Poisk puti metodo Djjkstra--\n";
+//      for (const auto& p : path) {
 //             cout << "(" << p.first << ", " << p.second << ") ";
 //        }
 

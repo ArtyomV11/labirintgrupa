@@ -35,11 +35,18 @@ void Maze::createPath(int x, int y) {
 }
 
 void Maze::generate() {
+    auto start = std::chrono::high_resolution_clock::now();  // Начало замера времени
+
     labyrinth.assign(size, vector<char>(size, Stena));
     createPath(1, 1);
     labyrinth[0][1] = Put; // Вход
     labyrinth[size - 1][size - 2] = Put; // Выход
+
+    auto end = std::chrono::high_resolution_clock::now();  // Конец замера времени
+    std::chrono::duration<double> duration = end - start;  // Вычисляем длительность
+    std::cout << "Vremya generacii labirinta: " << duration.count() << " sekund." << std::endl;
 }
+
 
 void Maze::display() const {
     for (const auto& row : labyrinth) {

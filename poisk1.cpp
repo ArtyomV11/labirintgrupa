@@ -1,15 +1,19 @@
 #include "Maze.h"
-#include <climits>
-#include <iostream>
-#include <vector>
+
 
 using namespace std;
 
 // Функция для поиска кратчайшего пути с использованием DFS
 bool Maze::findShortestPathDFS(int startX, int startY, int endX, int endY, vector<pair<int, int>>& path) {
+    auto start = std::chrono::high_resolution_clock::now();  // Начало замера времени
+
     vector<vector<bool>> visited(size, vector<bool>(size, false));
     vector<pair<int, int>> currentPath;
     bool found = dfs(startX, startY, endX, endY, currentPath, visited);
+
+    auto end = std::chrono::high_resolution_clock::now();  // Конец замера времени
+    std::chrono::duration<double> duration = end - start;  // Вычисляем длительность
+    std::cout << "Vremya poiska (DFS): " << duration.count() << " sekund." << std::endl;
 
     if (found) {
         path = currentPath;
@@ -17,6 +21,9 @@ bool Maze::findShortestPathDFS(int startX, int startY, int endX, int endY, vecto
     }
     return false;
 }
+
+
+
 
 // Вспомогательная функция DFS для поиска пути
 bool Maze::dfs(int x, int y, int endX, int endY, vector<pair<int, int>>& path, vector<vector<bool>>& visited) {

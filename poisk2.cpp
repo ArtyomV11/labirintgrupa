@@ -1,9 +1,5 @@
 #include "Maze.h"
-#include <climits>
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <tuple>
+
 
 using namespace std;
 
@@ -16,6 +12,8 @@ struct Node {
 
 // Функция для поиска кратчайшего пути с использованием алгоритма Дейкстры
 bool Maze::findShortestPathDijkstra(int startX, int startY, int endX, int endY, vector<pair<int, int>>& path) {
+    auto start = std::chrono::high_resolution_clock::now();  // Начало замера времени
+
     // Массив расстояний для всех точек
     vector<vector<int>> dist(size, vector<int>(size, INT_MAX));
     dist[startX][startY] = 0;
@@ -45,8 +43,14 @@ bool Maze::findShortestPathDijkstra(int startX, int startY, int endX, int endY, 
             }
             path.push_back({ startX, startY });
             reverse(path.begin(), path.end());
+
+            auto end = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> duration = end - start;
+            std::cout << "Vremya poiska (Dijkstra): " << duration.count() << " sekund." << std::endl;
+
             return true; // Путь найден, алгоритм завершен
         }
+
 
         // Проверяем соседей
         for (int i = 0; i < 4; ++i) {
@@ -66,10 +70,13 @@ bool Maze::findShortestPathDijkstra(int startX, int startY, int endX, int endY, 
         }
     }
 
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    std::cout << "Vremya poiska (Dijkstra): " << duration.count() << " sekund." << std::endl;
+
     return false; // Если выход не найден
 }
 
-// В файле Maze.cpp
 int Maze::calculatePathDijkstraLength(const std::vector<std::pair<int, int>>& path) {
     return (path.size() - 1 -1 )/2; // Длина пути (размер пути минус один)
 }

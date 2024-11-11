@@ -10,6 +10,9 @@
 #include <algorithm>
 #include <utility>
 #include <chrono>
+#include <climits>
+#include <queue>
+#include <tuple>
 
 const char Stena = '#';
 const char Put = ' ';
